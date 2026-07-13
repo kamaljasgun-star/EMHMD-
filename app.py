@@ -12,7 +12,7 @@ st.set_page_config(page_title="EMHMD - Health Misinformation Detector", page_ico
 st.markdown("""
 <style>
 .stApp {
-    background: linear-gradient(135deg, #023047 0%, #028090 100%);
+    background: linear-gradient(135deg, #051f2b 0%, #023047 30%, #028090 70%, #02a89a 100%);
 }
 .stApp, .stApp p, .stApp label, .stApp span, .stApp li, h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF !important;
@@ -20,15 +20,23 @@ st.markdown("""
 .stTextArea textarea, .stTextInput input {
     color: #1E293B !important;
     background-color: #FFFFFF !important;
+    border-radius: 10px !important;
 }
 .main-header {
     background: rgba(255, 255, 255, 0.12);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
-.main-header h1 { color: #FFFFFF !important; margin: 0; font-size: 3.5rem; }
+.main-header h1 {
+    color: #FFFFFF !important;
+    margin: 0;
+    font-size: 3.5rem;
+    text-shadow: 0 0 25px rgba(2, 195, 154, 0.5);
+}
 div.stButton > button {
     background-color: #02C39A;
     color: #023047 !important;
@@ -36,8 +44,14 @@ div.stButton > button {
     border: none;
     padding: 0.6rem 1.5rem;
     font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-div.stButton > button:hover { background-color: #00A896; }
+div.stButton > button:hover {
+    background-color: #00A896;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
 [data-testid="stMetricValue"] {
     color: #02C39A !important;
     font-weight: 700;
@@ -47,17 +61,21 @@ div.stButton > button:hover { background-color: #00A896; }
     font-weight: 600;
 }
 .model-card {
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 1.2rem;
     text-align: center;
     background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .gauge-wrap { display: flex; justify-content: center; margin: 0.5rem 0; }
 .info-bar {
     background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 1rem 1.5rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 </style>
 """, unsafe_allow_html=True)

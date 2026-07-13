@@ -139,16 +139,26 @@ with st.spinner("Training TF-IDF baseline..."):
 
 st.write("Enter a health-related claim below, or click an example:")
 
+if "claim_text" not in st.session_state:
+    st.session_state.claim_text = ""
+
 col1, col2 = st.columns(2)
-example = None
 with col1:
     if st.button("💧 Drinking hot water cures COVID-19"):
-        example = "Drinking hot water cures COVID-19"
+        st.session_state.claim_text = "Drinking hot water cures COVID-19"
+    if st.button("🧬 DNA vaccines alter your genetic code"):
+        st.session_state.claim_text = "DNA Vaccine: injecting genetic material into the host so that host cells create proteins that are similar to those in the virus against which the host then creates antibodies"
+    if st.button("🧄 Garlic cures cancer"):
+        st.session_state.claim_text = "Garlic cures cancer"
 with col2:
     if st.button("💉 Vaccines prevent measles"):
-        example = "Vaccines prevent measles"
+        st.session_state.claim_text = "Vaccines prevent measles"
+    if st.button("🧪 Rapid testing needed for schools"):
+        st.session_state.claim_text = "The only way to tell if a kid just has a cold (and can go to school) is robust rapid testing for #coronavirus — and right now we don't have it."
+    if st.button("🏥 Hospitals face real system challenges"):
+        st.session_state.claim_text = "After hospitals and care homes - as the government deals with real challenges in the system a cabinet minister has told Sky News"
 
-user_input = st.text_area("Enter a health claim:", value=example if example else "", placeholder="e.g., Garlic cures cancer")
+user_input = st.text_area("Enter a health claim:", key="claim_text", placeholder="e.g., Garlic cures cancer")
 
 if st.button("🔍 Check Claim", type="primary"):
     if user_input.strip() == "":

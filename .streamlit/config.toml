@@ -4,4 +4,4 @@ port = 8501
 enableCORS = false
 enableXsrfProtection = false
 [client]
-toolbarMode = "minimal"
+toolbarMode = "disabled"
